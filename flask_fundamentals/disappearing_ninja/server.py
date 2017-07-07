@@ -5,15 +5,13 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/ninja')
+@app.route('/ninja/')
 def ninja():
-    return render_template('ninja.html')
+    return render_template('ninja.html', template_color ="All")
 
 @app.route('/ninja/<vararg>')
 def ninja1(vararg):
-    if vararg not in ["purple","blue","orange","red"]:
-        return render_template('notapril.html')
-    string = vararg+'.html'
-    return render_template(string)
+    ninja_color=vararg
+    return render_template('ninja.html',template_color = ninja_color)
 
 app.run(debug=True)                   

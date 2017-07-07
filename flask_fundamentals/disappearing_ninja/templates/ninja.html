@@ -3,8 +3,12 @@
        <title>Teenage Mutant Ninja Turtles</title>
     </head>
     <body>
-
-      <h1>Teenage Mutant Ninja Turtles</h1>
+      {% if template_color == "All" %}
+      <h1>Teenage Mutant Ninja Turtles </h1>
       <img src="{{ url_for('static', filename='img/tmnt.png') }}">
+      {% elif template_color == "blue" %}
+      <h1>Leonardo</h1>
+      <img src="{{ url_for('static', filename='img/leonardo.jpg') }}">
+      {% endif %}
     </body>
 </html>
