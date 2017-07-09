@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="styles.css">
+   <title>The Great Number Game</title>
+</head>
+<body>
+   <h1>Welcome to the Great Number Game</h1>
+   <p>Think of a number between 1 and 100.
+       <br> Random{{session['rando']}}{{random}}
+       <br> Guess{{session['guess']}}{{guess}}
+    </p>
+    {% if session['guess'] == session['rando'] %}
+        <p> You Got it. The number was {{session['rando']}}</p>
+        <a href="/reset"><button>Reset</button></a> 
+    {% else %}
+    {% if session['guess'] == 'None' %}
+        <br>
+    {% elif session['rando'] >= session['guess'] %}
+        <p> too low try again</p>
+    {% elif session['rando'] <= session['guess'] %}
+        <p> too high try again</p>
+    {% endif %}
+     <form action='/eval' method='post'>
+          <input type='number' name='guess'><br>
+        
+          <input type='submit' value='Guess'>
+      </form>
+    {% endif %}
+</body>
+</html>
