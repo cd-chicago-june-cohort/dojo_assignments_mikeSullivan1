@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="styles.css">
+   <title>Ninja Gold Game</title>
+
+     <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Ninja Gold</h1>      
+    <p>You have this much gold:</p>
+    <p>Where to next?</p>
+  </div>
+</div>
+<div>   You have {{session['gold']}} gold pieces.</div>
+<div class="container-fluid bg-3 text-center">  
+  <div class="row">
+    <div class="col-sm-3">
+        <h3>Farm</h3>
+        <p>10 - 20 pieces of Gold</p>
+        <form action="/process_money" method="post">
+        <input type="hidden" name="building" value="farm" />
+        <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+    <div class="col-sm-3">
+        <h3>Cave</h3>
+        <p>5 - 10 pieces of Gold</p>
+        <form action="/process_money" method="post">
+        <input type="hidden" name="building" value="cave" />
+        <input type="submit" value="Find Gold!"/>
+        </form>
+  
+    </div>
+    <div class="col-sm-3">
+      <h3>House</h3>
+      <p>2 - 5 pieces of Gold</p>
+     <form action="/process_money" method="post">
+  <input type="hidden" name="building" value="house" />
+  <input type="submit" value="Find Gold!"/>
+</form>
+
+      
+    </div>
+    <div class="col-sm-3">
+      <h3>Casino</h3>
+      <p>Win or lose up to 50 pieces of Gold</p>
+      <form action="/process_money" method="post">
+  <input type="hidden" name="building" value="casino" />
+  <input type="submit" value="Find Gold!"/>
+</form>
+    </div>
+<div class="row"><br><br></div>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+          <div class="well">
+            <p>Activities:</p>
+            {% for i in session['log'] %}
+            {% if i[1] < 0 %}
+            <p color="red"> Lost {{i[1]*-1}} pieces of gold from the {{i[0]}} at {{i[2]}}</p>
+            {% else %}
+            <p color="green"> Gathered {{i[1]}} pieces of gold from the {{i[0]}} at {{i[2]}}</p>
+            {% endif %}
+
+            {% endfor %}            
+          </div>
+        </div>
+        <div class="col-sm-2">
+        </div>
+  </div>
+<div>
+</body>
+</html>
