@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="styles.css">
+  <title>Friends</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}
+            {% endfor %}
+        {% endif %}
+{% endwith %}
+ <h2>Try an Email Address</h2>
+  <form action='/tryaddress' method='POST'>
+    <label for="email">Email Address:<input type="email" name="email" id="email"></label>
+    <input type="submit" value="Try">
+  </form>
+  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="styles.css">
+  <title>Friends</title>
+</head>
+<body>
+{% if session['success_email'] %}
+    <ul class=flashes>
+    The email you entered({{session['success_email']}}) is a valid email address.
+    </ul>
+  {% endif %}
+ <h1>These are the submitted email addresses</h1>
+ <div class="col-8">
+ <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Email Address</th>
+        <th>Date Added</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for address in all_addresses %}
+      <tr>  
+        <td>{{address['email_address']}}</td>
+        <td>{{address['created_at']}}</td>
+      </tr>
+      {% endfor %}
+
+      <a href='/'><button type="button">Try Another</button>
+      </tbody>
+  </table>
+</div>
+  
+</body>
+</html>
