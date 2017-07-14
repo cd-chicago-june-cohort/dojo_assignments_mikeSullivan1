@@ -1,0 +1,26 @@
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+    </head>
+    <body>
+      <h1>Dojo Survey Form</h1>
+      <form action='/survey/process' method='post'>
+      {% csrf_token %}
+          Your Name: <input type='text' name='user_name'><br>
+          Dojo Location:    <select name="location">
+                                <option value="San Jose">San Jose</option>
+                                <option value="Chicago">Chicago</option>
+                                <option value="Dallas">Dallas</option>
+                                <option value="New York">New York</option>
+                            </select> <br>
+          Favorite Location:<select name="language">
+                                <option value="Python">Python</option>
+                                <option value="C">C</option>
+                                <option value="Ruby">Ruby</option>
+                                <option value="Java">Java</option>
+                            </select> <br>
+          Comment (optional):   <br> <textarea name="comment" rows="10" cols="30"></textarea><br> 
+          <input type='submit' value='submit'><br>
+      </form>
+    </body>
+</html>
