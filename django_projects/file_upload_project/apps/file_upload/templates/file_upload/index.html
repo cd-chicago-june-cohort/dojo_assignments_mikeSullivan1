@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <title>File Upload</title>
+</head>
+<body>
+   <h1>Upload a new file</h1>
+    <form action='/upload/file' method='post'>
+    {% csrf_token %}
+        <input type="file" name="any">
+        </div>
+<input type='submit' value='Upload to Session'><br>
+</form>
+<h2>Session Log</h2>
+<!--{% for entry in log  %}-->
+         <!--<font size="{{entry.large_font}}" color ="{{entry.color}}">{{entry.word}}</font> - added {{entry.timestamp}} <br />-->
+<!--{% endfor %}-->
+
+<!--<a href="/clear"><button>Clear Session</button></a>-->
+</body>
+</html>
