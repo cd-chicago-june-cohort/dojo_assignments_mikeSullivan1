@@ -24,7 +24,7 @@
 <div class="jumbotron">
   <div class="container text-center">
     <h1>Ninja Gold</h1>      
-    <p>You have {{gold}} pieces gold. </p>
+    <p>You have {{request.session.gold}} pieces gold. </p>
     <p>Where to next?</p>
   </div>
 </div>
@@ -74,7 +74,7 @@
         <div class="col-sm-8">
           <div class="well">
             <p>Activities:</p>
-            {% for entry in log %}
+            {% for entry in request.session.log %}
             {% if entry.amount < 0 %}
             <p color="red"> Lost {{entry.amount}} pieces of gold from the {{entry.location}} at {{entry.timestamp}}</p>
             {% else %}

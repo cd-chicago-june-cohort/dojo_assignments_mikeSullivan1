@@ -6,11 +6,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 
 def index(request):
-    context = {
-                "log" : request.session['log'],
-                "gold": request.session['gold']
-    }
-    return render(request, "gold/index.html", context)
+    return render(request, "gold/index.html")
 
 def process(request):
     if 'gold' not in request.session:
